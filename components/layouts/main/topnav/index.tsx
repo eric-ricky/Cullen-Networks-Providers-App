@@ -11,7 +11,7 @@ const TopNav = () => {
   const dashboardNavCtx = useDashboardNavContext();
 
   return (
-    <div className="p-4 w-full bg-white shadow-sm dark:bg-slate-500">
+    <div className="sticky top-0 left-0 z-[999] p-4 w-full bg-white shadow-sm dark:bg-slate-500">
       <div className="container mx-auto flex items-center justify-between">
         <div className="md:flex-grow">
           {dashboardNavCtx?.showNav ? (

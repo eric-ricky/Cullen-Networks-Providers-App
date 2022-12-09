@@ -11,7 +11,7 @@ const Hero = () => {
             Post Harvest Storage{' '}
             <span className="text-teal-400">Re-emagined. </span>
           </h1>
-          <p className="body text-slate-200 lg:w-[45%] mt-4 text-center ">
+          <p className="hidden md:inline-block text-slate-200 lg:w-[45%] mt-4 text-center ">
             <span className="font-bold underline">Cullen</span> is an online
             platform that connects farmers, retailers and households with a vast
             network of storage providers in the region to help them maintain the

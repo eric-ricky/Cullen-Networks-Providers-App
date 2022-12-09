@@ -6,6 +6,7 @@ import {
   NewspaperIcon,
   OfficeBuildingIcon,
   PlusCircleIcon,
+  PlusIcon,
   XIcon,
 } from '@heroicons/react/outline';
 import Image from 'next/image';
@@ -56,7 +57,7 @@ const SideBar = () => {
     <div
       className={`${
         dashboardNavCtx?.showNav ? 'col-span-10 flex' : 'lg:flex hidden'
-      } lg:col-span-2 bg-slate-700 h-screen flex-col justify-between`}
+      } lg:col-span-2 bg-slate-700 h-screen flex-col justify-between overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-500`}
     >
       <div className="py-10 w-full">
         <div className="flex items-center justify-between px-2 md:px-4">
@@ -68,9 +69,9 @@ const SideBar = () => {
             }
             className={`${
               dashboardNavCtx?.showNav ? 'flex' : 'hidden'
-            } text-white cursor-pointer`}
+            } text-white cursor-pointer mr-2`}
           >
-            <XIcon className="h-8" />
+            <XIcon className="h-6" />
           </div>
         </div>
 
@@ -95,6 +96,21 @@ const SideBar = () => {
               </p>
             </div>
           ))}
+          {userCtx?.user.uid && (
+            <div
+              onClick={() => {
+                dashboardNavCtx?.setShowNav(false);
+                router.push('/');
+              }}
+              className={`flex items-center space-x-4 py-2 px-4 hover:bg-slate-500 cursor-pointer text-teal-400                 
+              `}
+            >
+              <PlusIcon className="h-4" />
+              <p className="font-medium text-sm py-1 no-underline ">
+                Add your warehouse
+              </p>
+            </div>
+          )}
         </div>
       </div>
 
@@ -102,14 +118,20 @@ const SideBar = () => {
         {!userCtx?.user.uid ? (
           <div className="flex flex-col space-y-4 items-center px-8">
             <button
-              onClick={() => router.push('/auth/signup')}
+              onClick={() => {
+                dashboardNavCtx?.setShowNav(false);
+                router.push('/auth/signup');
+              }}
               className="px-6 py-2 w-full text-white bg-teal-600 rounded-md text-center"
             >
               Sign up
             </button>
 
             <span
-              onClick={() => router.push('/auth/signin')}
+              onClick={() => {
+                dashboardNavCtx?.setShowNav(false);
+                router.push('/auth/signin');
+              }}
               className="headingxs text-white cursor-pointer hover:underline"
             >
               or Signin
